@@ -4,22 +4,18 @@ import java.util.Scanner;
 
 public class QuanLyHocSinh {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Chọn chức năng:");
-        System.out.println("1. Nhập thông tin học sinh");
-        System.out.println("2. In thông tin học sinh");
-        System.out.println("3. Tính điểm trung bình");
-        System.out.println("0. Thoát");
-
-        int choice;
         HocSinh hocSinh = null;
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1. Thêm học sinh");
+        System.out.println("2. Hiển thị thông tin học sinh");
+        System.out.println("3. Điểm trung bình hai môn");
+        System.out.println("0. Thoát");
+        int choose;
         do {
-            System.out.print("Nhập lựa chọn: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            switch (choice) {
+            System.out.print("Nhập lựa chọn của bạn: ");
+            choose = scanner.nextInt();
+            scanner.nextLine();
+            switch (choose) {
                 case 1:
                     System.out.print("Nhập tên học sinh: ");
                     String ten = scanner.nextLine();
@@ -29,35 +25,30 @@ public class QuanLyHocSinh {
                     float diemToan = scanner.nextFloat();
                     System.out.print("Nhập điểm Văn: ");
                     float diemVan = scanner.nextFloat();
-
                     hocSinh = new HocSinh(ten, tuoi, diemToan, diemVan);
                     break;
                 case 2:
-                    if (hocSinh != null) {
+                    if (hocSinh != null)
                         System.out.println(hocSinh);
-                    } else {
-                        System.out.println("Chưa có thông tin học sinh.");
-                    }
+                    else
+                        System.out.println("Chưa có thông tin học sinh");
                     break;
                 case 3:
                     if (hocSinh != null) {
-                        float diemTrungBinh = hocSinh.tinhDiemTB();
-                        System.out.println("Điểm trung bình: " + diemTrungBinh);
-                    } else {
-                        System.out.println("Chưa có thông tin học sinh.");
-                    }
+                        float diemTB = hocSinh.tinhDiemTrungBinh();
+                        System.out.println("Điểm trung bình là: " + diemTB);
+                    } else
+                        System.out.println("Chưa có thông tin học sinh");
                     break;
                 case 0:
                     System.out.println("Thoát chương trình.");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ.");
+                    System.out.println("Không có lựa chọn này!");
             }
-        } while (choice != 0);
-
+        } while (choose != 0);
         scanner.close();
+
     }
-
-
 }
 

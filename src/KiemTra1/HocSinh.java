@@ -3,8 +3,8 @@ package KiemTra1;
 public class HocSinh {
     private String ten;
     private int tuoi;
-    private  float diemToan;
-    private  float diemVan;
+    private float diemToan;
+    private float diemVan;
 
     public HocSinh() {
     }
@@ -50,12 +50,14 @@ public class HocSinh {
 
     @Override
     public String toString() {
-        return  "Tên: " + ten +
+        return "===THONG TIN HOC SINH===" +
+                "\nTên: " + ten +
                 "\nTuổi: " + tuoi +
                 "\nĐiểm Toán: " + diemToan +
                 "\nĐiểm Văn: " + diemVan;
     }
-    public float tinhDiemTB() {
+
+    public float tinhDiemTrungBinh() {
         return (diemToan+diemVan)/2;
     }
 }
